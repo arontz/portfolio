@@ -1,69 +1,169 @@
+/* Basic styles for the entire document */
 body {
-    background-color: #2f2f2f;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #0d1117;
+  color: #c9d1d9;
 }
 
 header {
-    background-color: #333;
-    padding: 1em;
-    text-align: center;
+  position: relative;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
+.pimg1, .pimg2, .pimg3 {
+  position: relative;
+  opacity: 0.70;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
-nav li {
-    margin-right: 20px;
+.pimg1 {
+  background-image: url('your-image-url-1.jpg'); /* Replace with your image URL */
 }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
+.pimg2 {
+  background-image: url('your-image-url-2.jpg'); /* Replace with your image URL */
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2em;
+.pimg3 {
+  background-image: url('your-image-url-3.jpg'); /* Replace with your image URL */
 }
 
-section {
-    background-color: #444;
-    padding: 1em;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+.ptext {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #fff;
 }
 
-h1, h2 {
-    color: #fff;
-    margin-top: 0;
+.ptext .border {
+  background-color: #111;
+  color: #fff;
+  padding: 20px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  position: relative;
 }
 
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.ptext .border.trans {
+  background-color: transparent;
 }
 
-li {
-    margin-bottom: 10px;
+.tech-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  z-index: -1;
 }
 
-a {
-    color: #66d9ef;
-    text-decoration: none;
+.tech-icon {
+  width: 100px;
+  height: 100px;
+  opacity: 0.8;
+  animation: fade 5s infinite;
 }
 
-a:hover {
-    color: #4CAF50;
+@keyframes fade {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0; }
+}
+
+.section {
+  text-align: center;
+  padding: 50px 80px;
+}
+
+.section-dark {
+  background-color: #282c34;
+  color: #c9d1d9;
+}
+
+footer {
+  background-color: #161b22;
+  color: #8b949e;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+  border-radius: 5px;
+  justify-content: center;
+}
+
+.skills-list span {
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  font-weight: bold;
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form label {
+  margin-top: 10px;
+}
+
+form input, form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  color: white;
+  width: 100%;
+  max-width: 400px;
+}
+
+form button {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #58a6ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+form button:hover {
+  background-color: #1f6feb;
+}
+
+.project {
+  margin-bottom: 20px;
+}
+
+.project h3 {
+  margin-bottom: 5px;
 }

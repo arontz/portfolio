@@ -1,50 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baharun Abu Samah - Backend Developer</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Baharun - Backend Developer Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="about">
-            <h1>About Me</h1>
-            <p>I'm Baharun Abu Samah, a seasoned backend developer with expertise in Nestjs, Laravel, C#, MySQL, MongoDB, and AWS.</p>
-        </section>
-        <section id="skills">
-            <h1>Technical Skills</h1>
-            <ul>
-                <li>Programming Languages: C#, PHP, JavaScript</li>
-                <li>Frameworks: Nestjs, Laravel</li>
-                <li>Databases: MySQL, MongoDB</li>
-                <li>Cloud Platforms: AWS</li>
-                <li>Other Skills: API design, database modeling, cloud architecture</li>
-            </ul>
-        </section>
-        <section id="projects">
-            <h1>Projects</h1>
-            <ul>
-                <li>
-                    <h2>Project 1: Laravel + MongoDB Backend Service</h2>
-                    <p>A simple REST backend service built using Laravel and MongoDB.</p>
-                </li>
-                <li>
-                    <h2>Project 2: Nestjs + MySQL API</h2>
-                    <p>A RESTful API built using Nestjs and MySQL.</p>
-                </li>
-            </ul>
-        </section>
-    </main>
-    <script src="scripts.js"></script>
+  <div class="pimg1">
+    <div class="ptext">
+      <span class="border">
+        Baharun - Backend Developer
+      </span>
+    </div>
+  </div>
+
+  <section class="section section-dark" id="about">
+    <h2>About Me</h2>
+    <p>
+      Hello! I am Baharun, a backend developer with expertise in creating robust and scalable server-side applications.
+    </p>
+  </section>
+
+  <div class="pimg2">
+    <div class="ptext">
+      <span class="border trans" id="skills-section">
+        Skills
+        <div class="tech-grid">
+          <!-- Placeholder images for skills -->
+          <img src="src/laravel.jpg" class="tech-icon" alt="Laravel">
+          <img src="src/mongodb.png" class="tech-icon" alt="MongoDB">
+          <img src="src/mysql.png" class="tech-icon" alt="MySQL">
+          <img src="src/nestjs.png" class="tech-icon" alt="NestJS">
+          <img src="src/nodejs.png" class="tech-icon" alt="Node.js">
+        </div>
+      </span>
+    </div>
+  </div>
+
+  <section class="section section-dark" id="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <span>Node.js</span>
+      <span>Express.js</span>
+      <span>Laravel</span>
+      <span>NestJS</span>
+      <span>C</span>
+      <span>SQL</span>
+      <span>NoSQL</span>
+    </div>
+  </section>
+
+  <div class="pimg3">
+    <div class="ptext">
+      <span class="border trans">
+        Projects
+      </span>
+    </div>
+  </div>
+
+  <section class="section section-dark" id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Project One</h3>
+      <p>A RESTful API for managing tasks built with Node.js and Express.js.</p>
+    </div>
+    <div class="project">
+      <h3>Project Two</h3>
+      <p>A web application for booking appointments developed using Laravel and MySQL.</p>
+    </div>
+  </section>
+
+  <div class="pimg1">
+    <div class="ptext">
+      <span class="border">
+        Baharun
+      </span>
+    </div>
+  </div>
+
+  <section class="section section-dark" id="contact">
+    <h2>Contact</h2>
+    <form id="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
