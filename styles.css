@@ -1,169 +1,67 @@
-/* Basic styles for the entire document */
 body {
-  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  background-color: #0d1117;
-  color: #c9d1d9;
+  font-family: Arial, sans-serif;
+  background-color: #111; /* Dark mode background */
+  color: #fff; /* Text color */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
-header {
-  position: relative;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  color: white;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.pimg1, .pimg2, .pimg3 {
-  position: relative;
-  opacity: 0.70;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  height: 100vh;
-}
-
-.pimg1 {
-  background-image: url('your-image-url-1.jpg'); /* Replace with your image URL */
-}
-
-.pimg2 {
-  background-image: url('your-image-url-2.jpg'); /* Replace with your image URL */
-}
-
-.pimg3 {
-  background-image: url('your-image-url-3.jpg'); /* Replace with your image URL */
-}
-
-.ptext {
-  position: absolute;
-  top: 50%;
+.container {
   width: 100%;
-  text-align: center;
-  color: #fff;
-}
-
-.ptext .border {
-  background-color: #111;
-  color: #fff;
-  padding: 20px;
-  font-size: 24px;
-  text-transform: uppercase;
-  letter-spacing: 8px;
-  position: relative;
-}
-
-.ptext .border.trans {
-  background-color: transparent;
-}
-
-.tech-grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  z-index: -1;
-}
-
-.tech-icon {
-  width: 100px;
-  height: 100px;
-  opacity: 0.8;
-  animation: fade 5s infinite;
-}
-
-@keyframes fade {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 0; }
+  height: 100vh;
+  overflow-y: scroll; /* Enable vertical scrolling */
+  scroll-snap-type: y mandatory; /* Snap to each section */
 }
 
 .section {
-  text-align: center;
-  padding: 50px 80px;
-}
-
-.section-dark {
-  background-color: #282c34;
-  color: #c9d1d9;
-}
-
-footer {
-  background-color: #161b22;
-  color: #8b949e;
-  text-align: center;
-  padding: 20px 0;
-}
-
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px;
-  background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
-  border-radius: 5px;
-  justify-content: center;
-}
-
-.skills-list span {
-  padding: 5px 10px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
-  font-weight: bold;
-  color: white;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-form label {
-  margin-top: 10px;
-}
-
-form input, form textarea {
-  padding: 10px;
-  margin-top: 5px;
-  background-color: #21262d;
-  border: 1px solid #30363d;
-  color: white;
   width: 100%;
-  max-width: 400px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 3em;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 1s ease-in-out; /* Smooth opacity transition */
+  scroll-snap-align: start; /* Snap alignment */
+  position: relative; /* Relative positioning for content */
+  background-size: cover;
+  background-position: center;
 }
 
-form button {
-  margin-top: 15px;
-  padding: 10px;
-  background-color: #58a6ff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+.section.active {
+  opacity: 1; /* Fade in when active */
 }
 
-form button:hover {
-  background-color: #1f6feb;
+.section[data-bg="src/bg1.jpg"] {
+  background-image: url('src/bg1.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
-.project {
-  margin-bottom: 20px;
+.section[data-bg="src/bg2.jpg"] {
+  background-image: url('src/bg2.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
-.project h3 {
-  margin-bottom: 5px;
+.section[data-bg="src/bg3.jpg"] {
+  background-image: url('src/bg3.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.section[data-bg="src/bg4.jpg"] {
+  background-image: url('src/bg4.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for content */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Box shadow for content */
 }

@@ -12,6 +12,7 @@
             padding: 0;
             height: 100%;
             font-family: 'Roboto', sans-serif;
+            background-color: #333333;
         }
         .pimg2 {
             position: relative;
@@ -36,7 +37,7 @@
         .tech-icon, .empty-tile {
             width: 100px;
             height: 100px;
-            animation: fade 8s infinite;
+            animation: fade 18s infinite;
         }
         @keyframes fade {
             0%, 50% { opacity: 0.8; }
@@ -106,11 +107,11 @@
 
                 for (let i = 0; i < rows * cols; i++) {
                     const tile = getRandomTile();
-                    const randomDelay = Math.random() * 8;
+                    const randomDelay = Math.random() * 18;
                     tile.style.animationDelay = `${randomDelay}s`;
                     tile.addEventListener('animationiteration', () => {
                         const newTile = getRandomTile();
-                        const randomDelay = Math.random() * 8;
+                        const randomDelay = Math.random() * 18;
                         newTile.style.animationDelay = `${randomDelay}s`;
                         tile.replaceWith(newTile);
                         newTile.addEventListener('animationiteration', replaceTile);
@@ -122,7 +123,7 @@
             function replaceTile(event) {
                 const tile = event.target;
                 const newTile = getRandomTile();
-                const randomDelay = Math.random() * 8;
+                const randomDelay = Math.random() * 18;
                 newTile.style.animationDelay = `${randomDelay}s`;
                 tile.replaceWith(newTile);
                 newTile.addEventListener('animationiteration', replaceTile);

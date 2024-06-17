@@ -3,97 +3,187 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Baharun - Backend Developer Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>One Page Portfolio</title>
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #111; /* Dark mode background */
+  color: #fff; /* Text color */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+
+  scroll-snap-type: y mandatory; /* Snap to each section */
+  scroll-snap-stop: always;
+  overflow-y: scroll; /* Enable vertical scrolling */
+  scroll-behavior: smooth;
+}
+
+.section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 3em;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 1s ease-in-out; /* Smooth opacity transition */
+  scroll-snap-align: start; /* Snap alignment */
+  position: relative; /* Relative positioning for content */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.section.active {
+  opacity: 1; /* Fade in when active */
+}
+
+.section[data-bg="src/bg1.jpg"] {
+  background-image: url('src/bg1.jpg');
+}
+
+.section[data-bg="src/bg2.jpg"] {
+  background-image: url('src/bg2.jpg');
+}
+
+.section[data-bg="src/bg3.jpg"] {
+  background-image: url('src/bg3.jpg');
+}
+
+.section[data-bg="src/bg4.jpg"] {
+  background-image: url('src/bg4.jpg');
+}
+
+.content {
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for content */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Box shadow for content */
+}
+
+.scroll-btn {
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #333; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  cursor: pointer;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 20px;
+  z-index: 1; /* Ensure they're on top of other elements */
+}
+
+.scroll-btn.up.fixed {
+  right:90px; /* Adjust the right position for the up arrow */
+}
+
+.scroll-btn.down.fixed {
+  right: 10px; /* Adjust the right position for the down arrow */
+}
+
+  </style>
 </head>
 <body>
-  <div class="pimg1">
-    <div class="ptext">
-      <span class="border">
-        Baharun - Backend Developer
-      </span>
-    </div>
+  <div class="container">
+    <button class="scroll-btn up fixed" type="button">Up</button>
+    <section id="home" class="section" data-bg="src/bg1.jpg">
+      <div class="content">
+        <h1>Welcome to My Portfolio</h1>
+        <p>This is the home section. Feel free to scroll!</p>
+      </div>
+    </section>
+    <section id="about" class="section" data-bg="src/bg2.jpg">
+      <div class="content">
+        <h1>About Me</h1>
+        <p>I'm passionate about web development and design.</p>
+      </div>
+    </section>
+    <section id="portfolio" class="section" data-bg="src/bg3.jpg">
+      <div class="content">
+        <h1>Portfolio</h1>
+        <p>Check out some of my work below.</p>
+      </div>
+    </section>
+    <section id="contact" class="section" data-bg="src/bg4.jpg">
+      <div class="content">
+        <h1>Contact Me</h1>
+        <p>Feel free to get in touch!</p>
+      </div>
+    </section>
+    
+    <button class="scroll-btn down fixed" type="button">Down</button>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.section');
+    let currentSectionIndex = 0; // Track the current active section
+  
+    // Add 'active' class to the first section initially
+    sections[currentSectionIndex].classList.add('active');
+  
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
+    };
+  
+    const observer = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const newIndex = Array.from(sections).indexOf(entry.target);
+          if (newIndex !== currentSectionIndex) {
+            fadeSections(currentSectionIndex, newIndex);
+            currentSectionIndex = newIndex;
+          }
+        }
+      });
+    }, options);
+  
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  
+    function fadeSections(currentIndex, newIndex) {
+      sections[currentIndex].classList.remove('active');
+      sections[newIndex].classList.add('active');
+    }
+  
+    document.querySelectorAll('.scroll-btn.up').forEach(button => {
+    button.addEventListener('click', function() {
+        const currentSection = document.querySelector('.section.active');
+        if (currentSection) {
+        const prevSection = currentSection.previousElementSibling;
+        if (prevSection) {
+            prevSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        }
+    });
+    });
 
-  <section class="section section-dark" id="about">
-    <h2>About Me</h2>
-    <p>
-      Hello! I am Baharun, a backend developer with expertise in creating robust and scalable server-side applications.
-    </p>
-  </section>
-
-  <div class="pimg2">
-    <div class="ptext">
-      <span class="border trans" id="skills-section">
-        Skills
-        <div class="tech-grid">
-          <!-- Placeholder images for skills -->
-          <img src="src/laravel.jpg" class="tech-icon" alt="Laravel">
-          <img src="src/mongodb.png" class="tech-icon" alt="MongoDB">
-          <img src="src/mysql.png" class="tech-icon" alt="MySQL">
-          <img src="src/nestjs.png" class="tech-icon" alt="NestJS">
-          <img src="src/nodejs.png" class="tech-icon" alt="Node.js">
-        </div>
-      </span>
-    </div>
-  </div>
-
-  <section class="section section-dark" id="skills">
-    <h2>Skills</h2>
-    <div class="skills-list">
-      <span>Node.js</span>
-      <span>Express.js</span>
-      <span>Laravel</span>
-      <span>NestJS</span>
-      <span>C</span>
-      <span>SQL</span>
-      <span>NoSQL</span>
-    </div>
-  </section>
-
-  <div class="pimg3">
-    <div class="ptext">
-      <span class="border trans">
-        Projects
-      </span>
-    </div>
-  </div>
-
-  <section class="section section-dark" id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>Project One</h3>
-      <p>A RESTful API for managing tasks built with Node.js and Express.js.</p>
-    </div>
-    <div class="project">
-      <h3>Project Two</h3>
-      <p>A web application for booking appointments developed using Laravel and MySQL.</p>
-    </div>
-  </section>
-
-  <div class="pimg1">
-    <div class="ptext">
-      <span class="border">
-        Baharun
-      </span>
-    </div>
-  </div>
-
-  <section class="section section-dark" id="contact">
-    <h2>Contact</h2>
-    <form id="contact-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
-
-  <script src="scripts.js"></script>
+    document.querySelectorAll('.scroll-btn.down').forEach(button => {
+    button.addEventListener('click', function() {
+        const currentSection = document.querySelector('.section.active');
+        if (currentSection) {
+        const nextSection = currentSection.nextElementSibling;
+        if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        }
+    });
+    });
+  });
+  
+  </script>
 </body>
 </html>

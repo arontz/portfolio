@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .parallax-bg-1, .parallax-bg-2, .parallax-bg-3, .parallax-bg-4 {
+    /* Set up the parallax effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    /* Set specific heights for each image */
+    height: 500px; /* Adjust the height as needed */
+  }
+  
+  /* Set the specific background images for each class */
+  .parallax-bg-1 {
+    background-image: url('src/bg1.jpg');
+  }
+  
+  .parallax-bg-2 {
+    background-image: url('src/bg2.jpg');
+  }
+  
+  .parallax-bg-3 {
+    background-image: url('src/bg3.jpg');
+  }
+  
+  .parallax-bg-4 {
+    background-image: url('src/bg4.jpg');
+  }
+  
+  /* Add some spacing between your parallax content */
+  .content {
+    height: 500px;
+    background-color: white;
+    text-align: center;
+    padding-top: 20%;
+  }
+</style>
+</head>
+<body>
+
+<div class="parallax-bg-1"></div>
+<div class="content">Content Section</div>
+
+<div class="parallax-bg-2"></div>
+<div class="content">Content Section</div>
+
+<div class="parallax-bg-3"></div>
+<div class="content">Content Section</div>
+
+<div class="parallax-bg-4"></div>
+<div class="content">Content Section</div>
+
+</body>
+</html>
