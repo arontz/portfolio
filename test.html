@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Background Tiling Example</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+        }
+        .pimg2 {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Full height of the viewport */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            overflow: hidden; /* Ensure content doesn't overflow */
+        }
+        .tech-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .tech-icon, .empty-tile {
+            width: 100px;
+            height: 100px;
+            animation: fade 8s infinite;
+        }
+        @keyframes fade {
+            0%, 50% { opacity: 0.8; }
+            25%, 75% { opacity: 0; }
+        }
+        .content {
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.5); /* Optional: semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pimg2">
+        <div class="tech-grid"></div>
+        <div class="content">
+            <h1>Tiled Background</h1>
+            <p>This background is tiled with multiple images.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const pimg2 = document.querySelector(".pimg2");
+            const techGrid = document.querySelector(".tech-grid");
+            const techIcons = [
+                'src/laravel.jpg',
+                'src/mongodb.png',
+                'src/mysql.png',
+                'src/nestjs.png',
+                'src/nodejs.png'
+            ];
+
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+
+            function getRandomTile() {
+                if (Math.random() < 0.75) {
+                    const emptyTile = document.createElement('div');
+                    emptyTile.classList.add('empty-tile');
+                    return emptyTile;
+                } else {
+                    const img = document.createElement('img');
+                    img.src = techIcons[Math.floor(Math.random() * techIcons.length)];
+                    img.classList.add('tech-icon');
+                    return img;
+                }
+            }
+
+            function createTiledBackground() {
+                const gridWidth = pimg2.offsetWidth;
+                const gridHeight = pimg2.offsetHeight;
+
+                const iconWidth = 100;
+                const iconHeight = 100;
+
+                const cols = Math.ceil(gridWidth / iconWidth);
+                const rows = Math.ceil(gridHeight / iconHeight);
+
+                techGrid.innerHTML = ''; // Clear existing icons
+
+                for (let i = 0; i < rows * cols; i++) {
+                    const tile = getRandomTile();
+                    const randomDelay = Math.random() * 8;
+                    tile.style.animationDelay = `${randomDelay}s`;
+                    tile.addEventListener('animationiteration', () => {
+                        const newTile = getRandomTile();
+                        const randomDelay = Math.random() * 8;
+                        newTile.style.animationDelay = `${randomDelay}s`;
+                        tile.replaceWith(newTile);
+                        newTile.addEventListener('animationiteration', replaceTile);
+                    });
+                    techGrid.appendChild(tile);
+                }
+            }
+
+            function replaceTile(event) {
+                const tile = event.target;
+                const newTile = getRandomTile();
+                const randomDelay = Math.random() * 8;
+                newTile.style.animationDelay = `${randomDelay}s`;
+                tile.replaceWith(newTile);
+                newTile.addEventListener('animationiteration', replaceTile);
+            }
+
+            createTiledBackground();
+
+            window.addEventListener('resize', () => {
+                createTiledBackground();
+            });
+        });
+    </script>
+</body>
+</html>
