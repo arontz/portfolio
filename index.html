@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>One Page Portfolio</title>
+  <link rel="stylesheet" href="cards.css">
   <style>
     body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #111; /* Dark mode background */
+  font-family: Roboto, sans-serif;
+  background-color: rgb(26, 26, 26);
   color: #fff; /* Text color */
   overflow-x: hidden; /* Hide horizontal scrollbar */
 }
@@ -17,7 +18,6 @@
 .container {
   width: 100%;
   height: 100vh;
-
   scroll-snap-type: y mandatory; /* Snap to each section */
   scroll-snap-stop: always;
   overflow-y: scroll; /* Enable vertical scrolling */
@@ -27,7 +27,7 @@
 .section {
   width: calc(100% - 40px); /* Adjusting for padding */
   padding: 20px;
-  height: 100vh;
+  height: calc(100vh - 40px);
   font-size: 2em;
   opacity: 0; /* Initially hidden */
   transition: opacity 1s ease-in-out; /* Smooth opacity transition */
@@ -46,12 +46,14 @@
   opacity: 1; /* Fade in when active */
 }
 
-.section[data-bg="src/bg1.jpg"] {
-  background-image: url('src/bg1.jpg');
+.section[data-bg="backgroundsvg"] {
+  background-image: url('src/download.svg');
+  background-size:auto;
 }
 
-.section[data-bg="src/bg2.jpg"] {
-  background-image: url('src/bg2.jpg');
+.section[data-bg="holo"] {
+  background: radial-gradient(50% 123.47% at 50% 50%, #000000 0%, #FFFFFF 100%), radial-gradient(100% 100% at 50% 100%, #E9FFD8 0%, #001356 100%), linear-gradient(238.72deg, #0066FF 0%, #00CD21 100%), radial-gradient(100% 188.01% at 76.14% 0%, #00CAF7 0%, #FF00C7 100%), linear-gradient(0deg, #00C2FF 0%, #FFC700 100%), radial-gradient(59.2% 100% at 50% 0%, #8000FF 0%, #0085FF 100%), radial-gradient(100% 148.07% at 0% 0%, #FC8800 0%, #00FF94 100%);
+  background-blend-mode: overlay, multiply, hard-light, color-dodge, color-burn, color-burn, normal;
 }
 
 .section[data-bg="src/bg3.jpg"] {
@@ -127,15 +129,15 @@
 <body>
   <div class="container">
     <button class="scroll-btn up fixed" type="button">Up</button>
-    <section id="home" class="section" data-bg="src/bg1.jpg">
+    <section id="home" class="section" data-bg="backgroundsvg">
       <div class="content">
         <h3>Hey, I am Baharun</h3>
-        <h1><b>Back-end Developer</b></h1>
+        <h1>Back-End developer</h1>
 
-        <p>I have been working as a developer since 2020, familiar language <span class="changing-languages"><span class="language"></span><span class="cursor">.</span></span></p>
+        <p>I've been coding since 2017, specializing in languages like <span class="changing-languages"><span class="language"></span><span class="cursor">.</span></span></p>
       </div>
     </section>
-    <section id="about" class="section" data-bg="src/bg2.jpg">
+    <section id="about" class="section" data-bg="non">
       <div class="content">
         <h1>About Me</h1>
         <p>I'm passionate about web development and design.</p>
@@ -145,9 +147,18 @@
       <div class="content">
         <h1>Portfolio</h1>
         <p>Check out some of my work below.</p>
+        <div class="card">
+          <img src="img/hcms.png" alt="Image Description" class="card__image">
+          <div class="card__content">
+            <p class="card__title">JCORP HR system</p>
+            <p class="card__description">
+              where their attendance, leave, payslip and so on that required by human resources team or admin
+            </p>
+          </div>
+        </div>
       </div>
     </section>
-    <section id="contact" class="section" data-bg="src/bg4.jpg">
+    <section id="contact" class="section" data-bg="backgroundsvg">
       <div class="content">
         <h1>Contact Me</h1>
         <p>Feel free to get in touch!</p>
@@ -239,7 +250,6 @@
 
     typeLanguage();
   });
-  
   </script>
 </body>
 </html>
