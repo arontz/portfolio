@@ -1,7 +1,16 @@
+.wrap-card {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 100%; /* changed from 'inherit' to '100%' */
+    max-height: 400px; /* set a fixed max height to limit the number of cards */
+    overflow-y: auto; /* changed from 'overflow: scroll' to 'overflow-y: auto' */
+  }
+
 .card {
     position: relative;
-    width: 500px;
-    height: 400px;
+    width: 400px;
+    height: 300px;
     background: grey;
     border-radius: 10px;
     overflow: hidden;
@@ -9,6 +18,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 10px;
+    border: 2px solid #494949;
   }
   
   .card__image {
@@ -16,7 +27,7 @@
     height: 100%;
     object-fit: cover; /* Ensures the image covers the entire space */
     object-position: center; /* Centers the image within the container */
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
   }
   
   .card:hover {
@@ -34,7 +45,7 @@
     box-sizing: border-box;
     background-color: #222222;
     opacity: 0;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
   }
   
   .card:hover .card__content {
@@ -45,18 +56,72 @@
   .card__title {
     margin: 0;
     font-size: 24px;
-    color: #333;
+    color: #e7e7e7;
+    font-weight: 700;
+  }
+
+  .card__title2 {
+    margin: 10px 0 0;
+    font-size: 20px;
+    color: #e7e7e7;
     font-weight: 700;
   }
   
   .card__description {
     margin: 10px 0 0;
     font-size: 14px;
-    color: #777;
+    color: #9b9b9b;
     line-height: 1.4;
   }
   
   .card:hover .card__image {
     transform: scale(0);
   }
+
+  .card__tech{
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  ul {
+    list-style: none;
+    padding-inline-start: 0px;
+    margin-block: 0.2em;
+  }
+
+  .tech__list {
+    display: block;
+    height: 2.75rem;
+    width: 2.75rem;
+    margin: 0.25rem;
+    background-color: #fff;
+    padding: 0.2rem;
+    border-radius: 5px;
+  }
+
+  .btn.live-view-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #7798bb; /* or any other color you prefer */
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: x-large;
+  }
+  
+  .btn.live-view-btn:hover {
+    background-color: rgb(1, 107, 221); /* darken the color on hover */
+  }
+  
+  .btn.live-view-btn i {
+    margin-left: 5px; /* space between text and icon */
+  }
+
   

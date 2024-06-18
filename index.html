@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>One Page Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="cards.css">
   <style>
     body {
@@ -36,7 +37,7 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  text-align: left; /* Justify text */
+  text-align: center; /* Justify text */
   display: flex;
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
@@ -123,6 +124,18 @@
       50% { background-color: white; }
     }
     
+    *::-webkit-scrollbar {
+      width: 5px !important; /* adjust the width to your liking */
+    }
+
+    *::-webkit-scrollbar-track {
+      background-color: transparent !important;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.3) !important; /* dark grey with 30% transparency */
+      border-radius: 100px !important;
+    }
 
   </style>
 </head>
@@ -145,17 +158,88 @@
     </section>
     <section id="portfolio" class="section" data-bg="src/bg3.jpg">
       <div class="content">
-        <h1>Portfolio</h1>
+        <h1>Projects</h1>
         <p>Check out some of my work below.</p>
-        <div class="card">
-          <img src="img/hcms.png" alt="Image Description" class="card__image">
-          <div class="card__content">
-            <p class="card__title">JCORP HR system</p>
-            <p class="card__description">
-              where their attendance, leave, payslip and so on that required by human resources team or admin
-            </p>
+        <div class="wrap-card">
+          <div class="card">
+            <img src="img/hcms.png" alt="Image Description" class="card__image">
+            <div class="card__content">
+              <p class="card__title">JCORP HR system</p>
+              <p class="card__description">
+                [2020] where their attendance, leave, payslip and so on that required by human resources team or admin
+              </p>
+              <p class="card__title2">Technologies:</p>
+              <ul class="card__tech">
+                <li><img src="src/iis.png" class="tech__list"></li>
+                <li><img src="src/asp.webp" class="tech__list"></li>
+                <li><img src="src/mssql.png" class="tech__list"></li>
+                <li><img src="src/Csharp.svg" class="tech__list"></li>
+              </ul>
+              <a href="https://hcms.jcorp.com.my/" class="btn live-view-btn" target="_blank">
+                Live View <i class="fa fa-external-link"></i>
+              </a>
+            </div>
           </div>
-        </div>
+
+          <div class="card">
+            <img src="img/pms.png" alt="Image Description" class="card__image">
+            <div class="card__content">
+              <p class="card__title">Ranhill PMS</p>
+              <p class="card__description">
+                [2023 - 2024] Performance management system, as team lead and backend dev in this project
+              </p>
+              <p class="card__title2">Technologies:</p>
+              <ul class="card__tech">
+                <li><img src="src/mysql.png" class="tech__list"></li>
+                <li><img src="src/laravel.jpg" class="tech__list"></li>
+                <li><img src="src/aws.png" class="tech__list"></li>
+              </ul>
+              <a href="https://www.ranhill-pms.com/" class="btn live-view-btn" target="_blank">
+                Live View <i class="fa fa-external-link"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <img src="img/afi.png" alt="Image Description" class="card__image">
+            <div class="card__content">
+              <p class="card__title">Aerodyne LMS</p>
+              <p class="card__description">
+                [2024] where their attendance, leave, payslip and so on that required by human resources team or admin
+              </p>
+              <p class="card__title2">Technologies:</p>
+              <ul class="card__tech">
+                <li><img src="src/nodejs.png" class="tech__list"></li>
+                <li><img src="src/nestjs.svg" class="tech__list"></li>
+                <li><img src="src/aws.png" class="tech__list"></li>
+                <li><img src="src/mongodb.png" class="tech__list"></li>
+              </ul>
+              <a href="https://fly.aerodyne.ai/" class="btn live-view-btn" target="_blank">
+                Live View <i class="fa fa-external-link"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <img src="img/bida.png" alt="Image Description" class="card__image">
+            <div class="card__content">
+              <p class="card__title">Bidding plate number UTM</p>
+              <p class="card__description">
+                [2019] collaboration with JPJ. This system is require high performance server and run 24hours. Im working as full-stack developer in this project.
+              </p>
+              <p class="card__title2">Technologies:</p>
+              <ul class="card__tech">
+                <li><img src="src/iis.png" class="tech__list"></li>
+                <li><img src="src/asp.webp" class="tech__list"></li>
+                <li><img src="src/oracledbjpg.jpg" class="tech__list"></li>
+                <li><img src="src/Csharp.svg" class="tech__list"></li>
+              </ul>
+              <a href="https://bida.utm.my/User/Pembida/Default.aspx" class="btn live-view-btn" target="_blank">
+                Live View <i class="fa fa-external-link"></i>
+              </a>
+            </div>
+          </div>
+      </div>
       </div>
     </section>
     <section id="contact" class="section" data-bg="backgroundsvg">
