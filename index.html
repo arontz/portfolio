@@ -6,6 +6,7 @@
   <title>One Page Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="cards.css">
+  <link rel="stylesheet" href="slides.css">
   <style>
     body {
   margin: 0;
@@ -81,7 +82,7 @@
   margin: 10px;
   background-color: #333; /* Button background color */
   color: #fff; /* Button text color */
-  border: none;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -91,8 +92,17 @@
   z-index: 1; /* Ensure they're on top of other elements */
 }
 
+.footer-fixed {
+  position: fixed;
+  bottom: 0px;
+  right: 20px;
+  font-size: x-small;
+  z-index: 1; /* Ensure they're on top of other elements */
+  color: #636363;
+}
+
 .scroll-btn.up.fixed {
-  right:90px; /* Adjust the right position for the up arrow */
+  right:70px; /* Adjust the right position for the up arrow */
 }
 
 .scroll-btn.down.fixed {
@@ -141,7 +151,7 @@
 </head>
 <body>
   <div class="container">
-    <button class="scroll-btn up fixed" type="button">Up</button>
+    <button class="scroll-btn up fixed" type="button"><i class="fa fa-chevron-up"></i></button>
     <section id="home" class="section" data-bg="backgroundsvg">
       <div class="content">
         <h3>Hey, I am Baharun</h3>
@@ -154,9 +164,22 @@
       <div class="content">
         <h1>About Me</h1>
         <p>I'm passionate about web development and design.</p>
+        <p class="card__title2">Technologies:</p>
+            <ul class="card__tech">
+              <li class="tooltip"><img src="src/iis.png" class="tech__list"><span class="tooltiptext">Microsoft IIS</span></li>
+              <li class="tooltip"><img src="src/asp.webp" class="tech__list"><span class="tooltiptext">ASP.Net</span></li>
+              <li class="tooltip"><img src="src/mssql.png" class="tech__list"><span class="tooltiptext">Microsoft SQL</span></li>
+              <li class="tooltip"><img src="src/Csharp.svg" class="tech__list"><span class="tooltiptext">C#</span></li>
+              <li class="tooltip"><img src="src/mysql.png" class="tech__list"><span class="tooltiptext">Mysql</span></li>
+              <li class="tooltip"><img src="src/laravel.jpg" class="tech__list"><span class="tooltiptext">Laravel</span></li>
+              <li class="tooltip"><img src="src/aws.png" class="tech__list"><span class="tooltiptext">AWS Services</span></li>
+              <li class="tooltip"><img src="src/nestjs.svg" class="tech__list"><span class="tooltiptext">NestJS Framework</span></li>
+              <li class="tooltip"><img src="src/mongodb.png" class="tech__list"><span class="tooltiptext">Mongo DB</span></li>
+              <li class="tooltip"><img src="src/oracledbjpg.jpg" class="tech__list"><span class="tooltiptext">Oracle DB</span></li>
+            </ul>
       </div>
     </section>
-    <section id="portfolio" class="section" data-bg="src/bg3.jpg">
+    <section id="portfolio" class="section" data-bg="non">
       <div class="content">
         <h1>Projects</h1>
         <p>Check out some of my work below.</p>
@@ -170,13 +193,13 @@
               </p>
               <p class="card__title2">Technologies:</p>
               <ul class="card__tech">
-                <li><img src="src/iis.png" class="tech__list"></li>
-                <li><img src="src/asp.webp" class="tech__list"></li>
-                <li><img src="src/mssql.png" class="tech__list"></li>
-                <li><img src="src/Csharp.svg" class="tech__list"></li>
+                <li class="tooltip"><img src="src/iis.png" class="tech__list"><span class="tooltiptext">Microsoft IIS</span></li>
+                <li class="tooltip"><img src="src/asp.webp" class="tech__list"><span class="tooltiptext">ASP.Net</span></li>
+                <li class="tooltip"><img src="src/mssql.png" class="tech__list"><span class="tooltiptext">Microsoft SQL</span></li>
+                <li class="tooltip"><img src="src/Csharp.svg" class="tech__list"><span class="tooltiptext">C#</span></li>
               </ul>
               <a href="https://hcms.jcorp.com.my/" class="btn live-view-btn" target="_blank">
-                Live View <i class="fa fa-external-link"></i>
+                Visit Website <i class="fa fa-external-link-square"></i>
               </a>
             </div>
           </div>
@@ -190,12 +213,12 @@
               </p>
               <p class="card__title2">Technologies:</p>
               <ul class="card__tech">
-                <li><img src="src/mysql.png" class="tech__list"></li>
-                <li><img src="src/laravel.jpg" class="tech__list"></li>
-                <li><img src="src/aws.png" class="tech__list"></li>
+                <li class="tooltip"><img src="src/mysql.png" class="tech__list"><span class="tooltiptext">Mysql</span></li>
+                <li class="tooltip"><img src="src/laravel.jpg" class="tech__list"><span class="tooltiptext">Laravel</span></li>
+                <li class="tooltip"><img src="src/aws.png" class="tech__list"><span class="tooltiptext">AWS Services</span></li>
               </ul>
               <a href="https://www.ranhill-pms.com/" class="btn live-view-btn" target="_blank">
-                Live View <i class="fa fa-external-link"></i>
+                Visit Website <i class="fa fa-external-link-square"></i>
               </a>
             </div>
           </div>
@@ -205,17 +228,17 @@
             <div class="card__content">
               <p class="card__title">Aerodyne LMS</p>
               <p class="card__description">
-                [2024] where their attendance, leave, payslip and so on that required by human resources team or admin
+                [2024] Learning management system, where every drone pilot get their certificate
               </p>
               <p class="card__title2">Technologies:</p>
               <ul class="card__tech">
-                <li><img src="src/nodejs.png" class="tech__list"></li>
-                <li><img src="src/nestjs.svg" class="tech__list"></li>
-                <li><img src="src/aws.png" class="tech__list"></li>
-                <li><img src="src/mongodb.png" class="tech__list"></li>
+                <li class="tooltip"><img src="src/nodejs.png" class="tech__list"><span class="tooltiptext">NodeJS</span></li>
+                <li class="tooltip"><img src="src/nestjs.svg" class="tech__list"><span class="tooltiptext">NestJS Framework</span></li>
+                <li class="tooltip"><img src="src/aws.png" class="tech__list"><span class="tooltiptext">AWS Services</span></li>
+                <li class="tooltip"><img src="src/mongodb.png" class="tech__list"><span class="tooltiptext">Mongo DB</span></li>
               </ul>
               <a href="https://fly.aerodyne.ai/" class="btn live-view-btn" target="_blank">
-                Live View <i class="fa fa-external-link"></i>
+                Visit Website <i class="fa fa-external-link-square"></i>
               </a>
             </div>
           </div>
@@ -229,13 +252,13 @@
               </p>
               <p class="card__title2">Technologies:</p>
               <ul class="card__tech">
-                <li><img src="src/iis.png" class="tech__list"></li>
-                <li><img src="src/asp.webp" class="tech__list"></li>
-                <li><img src="src/oracledbjpg.jpg" class="tech__list"></li>
-                <li><img src="src/Csharp.svg" class="tech__list"></li>
+                <li class="tooltip"><img src="src/iis.png" class="tech__list"><span class="tooltiptext">Microsoft IIS</span></li>
+                <li class="tooltip"><img src="src/asp.webp" class="tech__list"><span class="tooltiptext">ASP.net</span></li>
+                <li class="tooltip"><img src="src/oracledbjpg.jpg" class="tech__list"><span class="tooltiptext">Oracle DB</span></li>
+                <li class="tooltip"><img src="src/Csharp.svg" class="tech__list"><span class="tooltiptext">C#</span></li>
               </ul>
               <a href="https://bida.utm.my/User/Pembida/Default.aspx" class="btn live-view-btn" target="_blank">
-                Live View <i class="fa fa-external-link"></i>
+                Visit Website <i class="fa fa-external-link-square"></i>
               </a>
             </div>
           </div>
@@ -244,14 +267,22 @@
     </section>
     <section id="contact" class="section" data-bg="backgroundsvg">
       <div class="content">
-        <h1>Contact Me</h1>
-        <p>Feel free to get in touch!</p>
+        <h1>Find me on:</h1>
+        <p class="icon-links">
+          <a href="mailto:en.baharun@gmail.com" target="_blank"><i class="fa fa-envelope-square"></i></a>
+          <a href="https://www.linkedin.com/in/baharun/" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+          <a href="https://github.com/arontz" target="_blank"><i class="fa fa-github-square"></i></a>
+        </p>
       </div>
     </section>
     
-    <button class="scroll-btn down fixed" type="button">Down</button>
+    <button class="scroll-btn down fixed" type="button"><i class="fa fa-chevron-down"></i></button>
+    <p class="footer-fixed">©<span id="current-year"></span> Baharun, All rights reserved.</p>
   </div>
   <script>
+    const currentYear = new Date().getFullYear();
+    document.getElementById("current-year").textContent = currentYear;
+
     document.addEventListener('DOMContentLoaded', function() {
       const languages = ['Javascript', 'PHP', 'C#', 'Typescript', 'SQL', 'a bit Java']; // Add more languages if needed
       let index = 0;

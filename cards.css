@@ -29,7 +29,7 @@
     object-position: center; /* Centers the image within the container */
     transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
   }
-  
+
   .card:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
@@ -46,6 +46,10 @@
     background-color: #222222;
     opacity: 0;
     transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.66) 0 30px 60px 0,
+            inset #333 0 0 0 5px,
+            inset rgba(255, 255, 255, 0.5) 0 0 0 6px;
   }
   
   .card:hover .card__content {
@@ -113,15 +117,80 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: x-large;
+    font-size: large;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   }
   
   .btn.live-view-btn:hover {
-    background-color: rgb(1, 107, 221); /* darken the color on hover */
+    background-color: #7798bb65; /* darken the color on hover */
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   }
   
   .btn.live-view-btn i {
     margin-left: 5px; /* space between text and icon */
   }
 
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    font-size: small;
+  }
   
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 75%; /* Position the tooltip above the image */
+    left: 50%;
+    margin-left: -60px; /* Center the tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Arrow at the bottom */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Unique class for your icon links */
+  .icon-links {
+    display: inline-block;
+    border: 1px solid #ccc; /* border style */
+    padding: 10px; /* padding inside the box */
+    border-radius: 10px; /* rounded corners */
+  }
+
+  .icon-links a {
+    text-decoration: none; /* remove underline from links */
+    color: #7798bb; /* link color */
+    margin: 10px; /* spacing between icons */
+  }
+
+  .icon-links a:last-child {
+    margin-right: 0; /* remove extra margin after last icon */
+  }
+
+  .icon-links .fa {
+    margin-right: 5px; /* spacing between icon and text */
+  }
+
+  .icon-links p {
+    cursor: none;
+  }
